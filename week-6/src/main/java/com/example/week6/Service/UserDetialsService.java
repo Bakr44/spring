@@ -1,6 +1,6 @@
 package com.example.week6.Service;
 
-import com.example.week6.Api.ApiExeption;
+import com.example.week6.Api.ApiException;
 import com.example.week6.Model.User;
 import com.example.week6.Repository.AuthRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class UserDetialsService implements org.springframework.security.core.use
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user=authRepository.findUserByUsername(username);
         if (user==null){
-            throw new ApiExeption("Wrong username or password");
+            throw new ApiException("Wrong username or password");
         }
         return user;
     }

@@ -3,6 +3,8 @@ package com.example.week6.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,8 +25,11 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty(message = "should not be empty")
     private String username;
+    @NotEmpty(message = "should not be empty")
     private String password;
+    @NotEmpty(message = "should not be empty")
     private String role;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
