@@ -57,7 +57,7 @@ public class ConfigrationSecurity {
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/register").permitAll()
 
                 .requestMatchers("/api/v1/auth/admin").hasAuthority("ADMIN")
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .logout().logoutUrl("/api/v1/auth/logout")
                 .deleteCookies("JSESSIONID")
